@@ -20,6 +20,10 @@ Generates a dummy dataset for testing and development purposes.
 * `num_records`: The number of records to generate (default: 1000)
 * `output_path`: The file path to save the generated dataset (default: "data/dummy_building_data.csv")
 
+#### main
+
+The main entry point of the application.
+
 ### Functions
 
 #### calculate_lifecycle_cost
@@ -41,12 +45,6 @@ Calculates the lifecycle cost of a building.
 ## Contributing
 
 ## License
-
-## Commands
-
-### main
-
-The main entry point of the application.
 
 ## API Reference
 
