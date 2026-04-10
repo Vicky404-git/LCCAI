@@ -1,53 +1,165 @@
-# README
-## Introduction
+# 🏗️ LCCAI — Life Cycle Cost AI
 
-## Getting Started
+A simple machine learning system that predicts long-term building costs from day-one data.
 
-## Usage
+LCCAI estimates:
 
-### Commands
+* annual maintenance cost
+* annual energy cost
 
-#### generate_data
+using basic building parameters.
 
-Generates a dummy dataset for testing and development purposes.
+No complex simulations.
+Just data → prediction.
 
-##### Syntax
+---
 
-`generate_dummy_dataset(num_records=1000, output_path="data/dummy_building_data.csv")`
+## 💡 what it does
 
-##### Parameters
+Given initial building inputs like:
 
-* `num_records`: The number of records to generate (default: 1000)
-* `output_path`: The file path to save the generated dataset (default: "data/dummy_building_data.csv")
+* area
+* age
+* material quality
+* construction cost
+* climate severity
 
-#### main
+LCCAI predicts:
 
-The main entry point of the application.
+* 🧾 **Annual Maintenance Cost**
+* ⚡ **Annual Energy Cost**
 
-### Functions
+---
 
-#### calculate_lifecycle_cost
+## 🧠 idea
 
-Calculates the lifecycle cost of a building.
+Most cost decisions are made early.
 
-##### Syntax
+But actual expenses show up later.
 
-`calculate_lifecycle_cost(initial_cost, annual_maintenance, annual_energy, discount_rate, lifespan_years)`
+This project tries to answer:
 
-##### Parameters
+> *“How expensive will this building be to run?”*
 
-* `initial_cost`: The initial cost of the building
-* `annual_maintenance`: The annual maintenance cost of the building
-* `annual_energy`: The annual energy cost of the building
-* `discount_rate`: The discount rate for the lifecycle cost calculation
-* `lifespan_years`: The lifespan of the building in years
+before it's even used.
 
-## Contributing
+---
 
-## License
+## ⚙️ how it works
 
-## API Reference
+1. Load dataset (`dummy_building_data.csv`)
+2. Split into:
 
-## Installation
+   * inputs (features)
+   * outputs (targets)
+3. Train two models:
 
-## Troubleshooting
+   * maintenance model
+   * energy model
+4. Evaluate performance (MAE + R²)
+5. Export models as `.pkl`
+
+---
+
+## 🧪 features
+
+* dual-model system (separate predictions)
+* simple, interpretable features
+* Random Forest regression
+* evaluation metrics included
+* model export (ready for integration)
+
+---
+
+## 🛠 tech stack
+
+* Python
+* pandas / numpy
+* scikit-learn
+
+---
+
+## 🚀 usage
+
+### 1. install dependencies
+
+```bash
+pip install pandas numpy scikit-learn
+```
+
+### 2. add dataset
+
+Place:
+
+```
+dummy_building_data.csv
+```
+
+in the project root.
+
+### 3. run training
+
+```bash
+python main.py
+```
+
+### 4. output
+
+* model_maintenance.pkl
+* model_energy.pkl
+
+---
+
+## 📊 metrics
+
+The script prints:
+
+* Mean Absolute Error (₹)
+* R² Score (accuracy)
+
+Example:
+
+```
+Maintenance MAE: ₹12,000
+Energy MAE: ₹8,500
+R²: 0.85+
+```
+
+---
+
+## ⚠️ limitations
+
+* uses dummy dataset
+* no real-world validation yet
+* no UI / API
+* model accuracy depends on data quality
+
+---
+
+## 🧭 roadmap
+
+* real dataset integration
+* API / web interface
+* better feature engineering
+* try advanced models (XGBoost, etc.)
+
+---
+
+## 🤔 why this exists
+
+Because long-term costs are usually:
+
+* underestimated
+* ignored
+* or discovered too late
+
+This project is a small step toward predicting them earlier.
+
+---
+
+## 📌 status
+
+🚧 early-stage / experimental
+
+---
+
